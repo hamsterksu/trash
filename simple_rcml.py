@@ -15,13 +15,13 @@ def gather():
 @app.route("/gather-action", methods=['GET', 'POST'])
 def gather_action():
     print(request.form)
-    return "OK"
+    return ""
 
 
 @app.route("/gather-action-partial", methods=['GET', 'POST'])
 def gather_action_partial():
     print(request.form)
-    return "OK"
+    return ""
 
 @app.route("/say.xml", methods=['GET', 'POST'])
 def end():
