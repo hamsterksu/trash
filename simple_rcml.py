@@ -4,10 +4,10 @@ app = Flask(__name__)
 @app.route("/gather.xml", methods=['GET', 'POST'])
 def gather():
     xml = '<Response>'\
-            '<Gather input="speech" action="http://127.0.0.1:5000/gather-action" partialResultCallback="http://127.0.0.1:5000/gather-action-partial" numDigits="1" timeout="60">'\
+            '<Gather input="speech" action="http://127.0.0.1:5000/gather-action" partialResultCallback="http://127.0.0.1:5000/gather-action-partial" timeout="60">'\
                     '<Play>http://192.168.176.58:8080/restcomm/audio/demo-prompt.wav</Play>'\
                 '</Gather>'\
-                '<Say>Error is here</Say>'\
+                '<Say>After Gather</Say>'\
                 '<Redirect>http://127.0.0.1:5000/say.xml</Redirect>'\
             '</Response>'
     return Response(xml, mimetype='text/xml')
@@ -15,7 +15,7 @@ def gather():
 @app.route("/gather-action", methods=['GET', 'POST'])
 def gather_action():
     print(request.form)
-    return ""
+    return "<Say>Thank you</Say>"
 
 
 @app.route("/gather-action-partial", methods=['GET', 'POST'])
